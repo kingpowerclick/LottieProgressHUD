@@ -1,0 +1,678 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39A851A1BBFD69D91C61C618 /* Pods_LottieProgressHUDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9843C370E96FD7EFA162705A /* Pods_LottieProgressHUDTests.framework */; };
+		DE50D3E1227802D800F0E7F2 /* ProgressHUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3E0227802D800F0E7F2 /* ProgressHUDViewController.swift */; };
+		DE50D3E72278031A00F0E7F2 /* ProgressHUDViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3E62278031A00F0E7F2 /* ProgressHUDViewType.swift */; };
+		DE50D3E92278032400F0E7F2 /* ProgressHUDRouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3E82278032400F0E7F2 /* ProgressHUDRouterType.swift */; };
+		DE50D3EB2278032F00F0E7F2 /* ProgressHUDBuilderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3EA2278032F00F0E7F2 /* ProgressHUDBuilderType.swift */; };
+		DE50D3EE2278034200F0E7F2 /* ProgressHUDPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3ED2278034200F0E7F2 /* ProgressHUDPresenterType.swift */; };
+		DE50D3F02278034900F0E7F2 /* ProgressHUDBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3EF2278034900F0E7F2 /* ProgressHUDBuilder.swift */; };
+		DE50D3F22278035100F0E7F2 /* ProgressHUDPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3F12278035100F0E7F2 /* ProgressHUDPresenter.swift */; };
+		DE50D3F42278035900F0E7F2 /* ProgressHUDRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3F32278035900F0E7F2 /* ProgressHUDRouter.swift */; };
+		DE50D3F922780FA500F0E7F2 /* UIViewController+ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3F822780FA500F0E7F2 /* UIViewController+ProgressHUD.swift */; };
+		DE50D402227811BD00F0E7F2 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D401227811BD00F0E7F2 /* ProgressHUD.swift */; };
+		DE58AD8222292FC900541A6C /* LottieProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE58AD7822292FC900541A6C /* LottieProgressHUD.framework */; };
+		DE58AD8722292FC900541A6C /* LottieProgressHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE58AD8622292FC900541A6C /* LottieProgressHUDTests.swift */; };
+		DE58AD8922292FC900541A6C /* LottieProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = DE58AD7B22292FC900541A6C /* LottieProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC1C7CAF5CC748C529E2C6B9 /* Pods_LottieProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19938572B28B6882371DCDB /* Pods_LottieProgressHUD.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DE58AD8322292FC900541A6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE58AD6F22292FC900541A6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE58AD7722292FC900541A6C;
+			remoteInfo = LottieProgressHUD;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		441065A462689951B4220918 /* Pods-LottieProgressHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieProgressHUD.release.xcconfig"; path = "Pods/Target Support Files/Pods-LottieProgressHUD/Pods-LottieProgressHUD.release.xcconfig"; sourceTree = "<group>"; };
+		9843C370E96FD7EFA162705A /* Pods_LottieProgressHUDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottieProgressHUDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A72C135ED814F5FD1704F03B /* Pods-LottieProgressHUDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieProgressHUDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottieProgressHUDTests/Pods-LottieProgressHUDTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C3C92F1ACF225CC8FAAAE88A /* Pods-LottieProgressHUDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieProgressHUDTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LottieProgressHUDTests/Pods-LottieProgressHUDTests.release.xcconfig"; sourceTree = "<group>"; };
+		DE50D3E0227802D800F0E7F2 /* ProgressHUDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDViewController.swift; sourceTree = "<group>"; };
+		DE50D3E62278031A00F0E7F2 /* ProgressHUDViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDViewType.swift; sourceTree = "<group>"; };
+		DE50D3E82278032400F0E7F2 /* ProgressHUDRouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDRouterType.swift; sourceTree = "<group>"; };
+		DE50D3EA2278032F00F0E7F2 /* ProgressHUDBuilderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDBuilderType.swift; sourceTree = "<group>"; };
+		DE50D3ED2278034200F0E7F2 /* ProgressHUDPresenterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDPresenterType.swift; sourceTree = "<group>"; };
+		DE50D3EF2278034900F0E7F2 /* ProgressHUDBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDBuilder.swift; sourceTree = "<group>"; };
+		DE50D3F12278035100F0E7F2 /* ProgressHUDPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDPresenter.swift; sourceTree = "<group>"; };
+		DE50D3F32278035900F0E7F2 /* ProgressHUDRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDRouter.swift; sourceTree = "<group>"; };
+		DE50D3F822780FA500F0E7F2 /* UIViewController+ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ProgressHUD.swift"; sourceTree = "<group>"; };
+		DE50D401227811BD00F0E7F2 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		DE58AD7822292FC900541A6C /* LottieProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LottieProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE58AD7B22292FC900541A6C /* LottieProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LottieProgressHUD.h; sourceTree = "<group>"; };
+		DE58AD7C22292FC900541A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE58AD8122292FC900541A6C /* LottieProgressHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottieProgressHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE58AD8622292FC900541A6C /* LottieProgressHUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieProgressHUDTests.swift; sourceTree = "<group>"; };
+		DE58AD8822292FC900541A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E19938572B28B6882371DCDB /* Pods_LottieProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottieProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDCDB3E105747AC6DACA43E2 /* Pods-LottieProgressHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieProgressHUD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottieProgressHUD/Pods-LottieProgressHUD.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DE58AD7522292FC900541A6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC1C7CAF5CC748C529E2C6B9 /* Pods_LottieProgressHUD.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE58AD7E22292FC900541A6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE58AD8222292FC900541A6C /* LottieProgressHUD.framework in Frameworks */,
+				39A851A1BBFD69D91C61C618 /* Pods_LottieProgressHUDTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A3A4E88CA157328659F0C519 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E19938572B28B6882371DCDB /* Pods_LottieProgressHUD.framework */,
+				9843C370E96FD7EFA162705A /* Pods_LottieProgressHUDTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE50D3DD227802A600F0E7F2 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				DE50D3DE227802AE00F0E7F2 /* ProgressHUD */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		DE50D3DE227802AE00F0E7F2 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				DE50D3E3227802FB00F0E7F2 /* Builder */,
+				DE50D3E2227802F400F0E7F2 /* Presenter */,
+				DE50D3E52278030700F0E7F2 /* Protocol */,
+				DE50D3E42278030100F0E7F2 /* Router */,
+				DE50D3DF227802CD00F0E7F2 /* View */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		DE50D3DF227802CD00F0E7F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE50D3E0227802D800F0E7F2 /* ProgressHUDViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE50D3E2227802F400F0E7F2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DE50D3F12278035100F0E7F2 /* ProgressHUDPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DE50D3E3227802FB00F0E7F2 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				DE50D3EF2278034900F0E7F2 /* ProgressHUDBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		DE50D3E42278030100F0E7F2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DE50D3F32278035900F0E7F2 /* ProgressHUDRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		DE50D3E52278030700F0E7F2 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				DE50D3EA2278032F00F0E7F2 /* ProgressHUDBuilderType.swift */,
+				DE50D3ED2278034200F0E7F2 /* ProgressHUDPresenterType.swift */,
+				DE50D3E82278032400F0E7F2 /* ProgressHUDRouterType.swift */,
+				DE50D3E62278031A00F0E7F2 /* ProgressHUDViewType.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		DE50D3F522780F2700F0E7F2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DE50D3F622780F3000F0E7F2 /* UIKit */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DE50D3F622780F3000F0E7F2 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				DE50D3F722780F3500F0E7F2 /* UIViewController */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		DE50D3F722780F3500F0E7F2 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DE50D3F822780FA500F0E7F2 /* UIViewController+ProgressHUD.swift */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		DE58AD6E22292FC900541A6C = {
+			isa = PBXGroup;
+			children = (
+				A3A4E88CA157328659F0C519 /* Frameworks */,
+				DE58AD7A22292FC900541A6C /* LottieProgressHUD */,
+				DE58AD8522292FC900541A6C /* LottieProgressHUDTests */,
+				EB6BB219906F54F520872F25 /* Pods */,
+				DE58AD7922292FC900541A6C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DE58AD7922292FC900541A6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE58AD7822292FC900541A6C /* LottieProgressHUD.framework */,
+				DE58AD8122292FC900541A6C /* LottieProgressHUDTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DE58AD7A22292FC900541A6C /* LottieProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				DE50D3F522780F2700F0E7F2 /* Extension */,
+				DE58AD7C22292FC900541A6C /* Info.plist */,
+				DE58AD7B22292FC900541A6C /* LottieProgressHUD.h */,
+				DE50D3DD227802A600F0E7F2 /* Module */,
+				DE50D401227811BD00F0E7F2 /* ProgressHUD.swift */,
+			);
+			path = LottieProgressHUD;
+			sourceTree = "<group>";
+		};
+		DE58AD8522292FC900541A6C /* LottieProgressHUDTests */ = {
+			isa = PBXGroup;
+			children = (
+				DE58AD8822292FC900541A6C /* Info.plist */,
+				DE58AD8622292FC900541A6C /* LottieProgressHUDTests.swift */,
+			);
+			path = LottieProgressHUDTests;
+			sourceTree = "<group>";
+		};
+		EB6BB219906F54F520872F25 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FDCDB3E105747AC6DACA43E2 /* Pods-LottieProgressHUD.debug.xcconfig */,
+				441065A462689951B4220918 /* Pods-LottieProgressHUD.release.xcconfig */,
+				A72C135ED814F5FD1704F03B /* Pods-LottieProgressHUDTests.debug.xcconfig */,
+				C3C92F1ACF225CC8FAAAE88A /* Pods-LottieProgressHUDTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DE58AD7322292FC900541A6C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE58AD8922292FC900541A6C /* LottieProgressHUD.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DE58AD7722292FC900541A6C /* LottieProgressHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE58AD8C22292FC900541A6C /* Build configuration list for PBXNativeTarget "LottieProgressHUD" */;
+			buildPhases = (
+				333211BB872EEDF25C834147 /* [CP] Check Pods Manifest.lock */,
+				DE58AD7322292FC900541A6C /* Headers */,
+				DE58AD7422292FC900541A6C /* Sources */,
+				DE58AD7522292FC900541A6C /* Frameworks */,
+				DE58AD7622292FC900541A6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LottieProgressHUD;
+			productName = LottieProgressHUD;
+			productReference = DE58AD7822292FC900541A6C /* LottieProgressHUD.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DE58AD8022292FC900541A6C /* LottieProgressHUDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE58AD8F22292FC900541A6C /* Build configuration list for PBXNativeTarget "LottieProgressHUDTests" */;
+			buildPhases = (
+				51DCF3163B2939AB39DC3FE6 /* [CP] Check Pods Manifest.lock */,
+				DE58AD7D22292FC900541A6C /* Sources */,
+				DE58AD7E22292FC900541A6C /* Frameworks */,
+				DE58AD7F22292FC900541A6C /* Resources */,
+				6D15CE3B7E582E62E878536A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE58AD8422292FC900541A6C /* PBXTargetDependency */,
+			);
+			name = LottieProgressHUDTests;
+			productName = LottieProgressHUDTests;
+			productReference = DE58AD8122292FC900541A6C /* LottieProgressHUDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DE58AD6F22292FC900541A6C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "King Power Click Co., Ltd.";
+				TargetAttributes = {
+					DE58AD7722292FC900541A6C = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
+					};
+					DE58AD8022292FC900541A6C = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = DE58AD7222292FC900541A6C /* Build configuration list for PBXProject "LottieProgressHUD" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DE58AD6E22292FC900541A6C;
+			productRefGroup = DE58AD7922292FC900541A6C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DE58AD7722292FC900541A6C /* LottieProgressHUD */,
+				DE58AD8022292FC900541A6C /* LottieProgressHUDTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DE58AD7622292FC900541A6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE58AD7F22292FC900541A6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		333211BB872EEDF25C834147 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LottieProgressHUD-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51DCF3163B2939AB39DC3FE6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LottieProgressHUDTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D15CE3B7E582E62E878536A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LottieProgressHUDTests/Pods-LottieProgressHUDTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LottieProgressHUDTests/Pods-LottieProgressHUDTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE58AD7422292FC900541A6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE50D3E1227802D800F0E7F2 /* ProgressHUDViewController.swift in Sources */,
+				DE50D3F42278035900F0E7F2 /* ProgressHUDRouter.swift in Sources */,
+				DE50D3EE2278034200F0E7F2 /* ProgressHUDPresenterType.swift in Sources */,
+				DE50D3F922780FA500F0E7F2 /* UIViewController+ProgressHUD.swift in Sources */,
+				DE50D3F02278034900F0E7F2 /* ProgressHUDBuilder.swift in Sources */,
+				DE50D3E92278032400F0E7F2 /* ProgressHUDRouterType.swift in Sources */,
+				DE50D3F22278035100F0E7F2 /* ProgressHUDPresenter.swift in Sources */,
+				DE50D3EB2278032F00F0E7F2 /* ProgressHUDBuilderType.swift in Sources */,
+				DE50D402227811BD00F0E7F2 /* ProgressHUD.swift in Sources */,
+				DE50D3E72278031A00F0E7F2 /* ProgressHUDViewType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE58AD7D22292FC900541A6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE58AD8722292FC900541A6C /* LottieProgressHUDTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DE58AD8422292FC900541A6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE58AD7722292FC900541A6C /* LottieProgressHUD */;
+			targetProxy = DE58AD8322292FC900541A6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DE58AD8A22292FC900541A6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DE58AD8B22292FC900541A6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DE58AD8D22292FC900541A6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDCDB3E105747AC6DACA43E2 /* Pods-LottieProgressHUD.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = LottieProgressHUD/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kpc.LottieProgressHUD.iOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DE58AD8E22292FC900541A6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 441065A462689951B4220918 /* Pods-LottieProgressHUD.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = LottieProgressHUD/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kpc.LottieProgressHUD.iOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DE58AD9022292FC900541A6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A72C135ED814F5FD1704F03B /* Pods-LottieProgressHUDTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				INFOPLIST_FILE = LottieProgressHUDTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kpc.LottieProgressHUD.iOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DE58AD9122292FC900541A6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3C92F1ACF225CC8FAAAE88A /* Pods-LottieProgressHUDTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				INFOPLIST_FILE = LottieProgressHUDTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kpc.LottieProgressHUD.iOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DE58AD7222292FC900541A6C /* Build configuration list for PBXProject "LottieProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE58AD8A22292FC900541A6C /* Debug */,
+				DE58AD8B22292FC900541A6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE58AD8C22292FC900541A6C /* Build configuration list for PBXNativeTarget "LottieProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE58AD8D22292FC900541A6C /* Debug */,
+				DE58AD8E22292FC900541A6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE58AD8F22292FC900541A6C /* Build configuration list for PBXNativeTarget "LottieProgressHUDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE58AD9022292FC900541A6C /* Debug */,
+				DE58AD9122292FC900541A6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DE58AD6F22292FC900541A6C /* Project object */;
+}
