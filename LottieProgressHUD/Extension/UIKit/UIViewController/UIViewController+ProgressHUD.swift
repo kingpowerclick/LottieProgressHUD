@@ -13,10 +13,10 @@ extension UIViewController
 {
     open func showProgressHUD(
         animation: Animation = ProgressHUD.defaultAnimation,
-        backgroundColor: UIColor = .clear,
-        visualEffect: UIVisualEffect = UIBlurEffect(style: .prominent),
-        visualEffectCornerRadius: CGFloat = 14.0,
-        visualEffectSizeOffset: UIOffset = UIOffset(horizontal: 28.0, vertical: 28.0),
+        backgroundColor: UIColor? = ProgressHUD.backgroundColor,
+        effect: UIVisualEffect? = ProgressHUD.effect,
+        effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
+        effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
         animated flag: Bool = true,
         completion: (() -> Void)? = nil)
     {
@@ -24,9 +24,9 @@ extension UIViewController
             .build(
                 animation: animation,
                 backgroundColor: backgroundColor,
-                visualEffect: visualEffect,
-                visualEffectCornerRadius: visualEffectCornerRadius,
-                visualEffectSizeOffset: visualEffectSizeOffset)
+                effect: effect,
+                effectCornerRadius: effectCornerRadius,
+                effectSizeOffset: effectSizeOffset)
         
         present(
             viewController,

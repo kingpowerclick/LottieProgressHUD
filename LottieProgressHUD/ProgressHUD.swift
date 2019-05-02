@@ -11,6 +11,11 @@ import UIKit
 
 open class ProgressHUD
 {
+    private var backgroundColor: UIColor? = .clear
+    private var effect: UIVisualEffect? = UIBlurEffect(style: .prominent)
+    private var effectCornerRadius: CGFloat = 14.0
+    private var effectSizeOffset = UIOffset(horizontal: 28.0, vertical: 28.0)
+    
     private var animation: Animation?
     
     private static let singleton = ProgressHUD()
@@ -35,15 +40,31 @@ extension ProgressHUD
         
         return animation
     }
+    
+    open class var backgroundColor: UIColor? {
+        get { return singleton.backgroundColor }
+        set { singleton.backgroundColor = newValue } }
+    
+    open class var effect: UIVisualEffect? {
+        get { return singleton.effect }
+        set { singleton.effect = newValue } }
+    
+    open class var effectCornerRadius: CGFloat {
+        get { return singleton.effectCornerRadius }
+        set { singleton.effectCornerRadius = newValue } }
+    
+    open class var effectSizeOffset: UIOffset {
+        get { return singleton.effectSizeOffset }
+        set { singleton.effectSizeOffset = newValue } }
 }
 
 extension ProgressHUD
 {
     open class func show(
-        backgroundColor: UIColor = .clear,
-        visualEffect: UIVisualEffect = UIBlurEffect(style: .prominent),
-        visualEffectCornerRadius: CGFloat = 14.0,
-        visualEffectSizeOffset: UIOffset = UIOffset(horizontal: 28.0, vertical: 28.0),
+        backgroundColor: UIColor? = ProgressHUD.backgroundColor,
+        effect: UIVisualEffect? = ProgressHUD.effect,
+        effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
+        effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
         animated flag: Bool = true,
         completion: (() -> Void)? = nil)
     {
@@ -63,10 +84,11 @@ extension ProgressHUD
                 .presentingViewController(
                     from: presentedViewController)
                 .showProgressHUD(
+                    animation: ProgressHUD.defaultAnimation,
                     backgroundColor: backgroundColor,
-                    visualEffect: visualEffect,
-                    visualEffectCornerRadius: visualEffectCornerRadius,
-                    visualEffectSizeOffset: visualEffectSizeOffset,
+                    effect: effect,
+                    effectCornerRadius: effectCornerRadius,
+                    effectSizeOffset: effectSizeOffset,
                     animated: flag,
                     completion: completion)
         }
@@ -74,10 +96,11 @@ extension ProgressHUD
         {
             rootViewController
                 .showProgressHUD(
+                    animation: ProgressHUD.defaultAnimation,
                     backgroundColor: backgroundColor,
-                    visualEffect: visualEffect,
-                    visualEffectCornerRadius: visualEffectCornerRadius,
-                    visualEffectSizeOffset: visualEffectSizeOffset,
+                    effect: effect,
+                    effectCornerRadius: effectCornerRadius,
+                    effectSizeOffset: effectSizeOffset,
                     animated: flag,
                     completion: completion)
         }

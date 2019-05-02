@@ -21,6 +21,7 @@
 		DE58AD8222292FC900541A6C /* LottieProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE58AD7822292FC900541A6C /* LottieProgressHUD.framework */; };
 		DE58AD8722292FC900541A6C /* LottieProgressHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE58AD8622292FC900541A6C /* LottieProgressHUDTests.swift */; };
 		DE58AD8922292FC900541A6C /* LottieProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = DE58AD7B22292FC900541A6C /* LottieProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DEBEF5ED227B220D002A402A /* ProgressHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBEF5EC227B220D002A402A /* ProgressHUDView.swift */; };
 		FC1C7CAF5CC748C529E2C6B9 /* Pods_LottieProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19938572B28B6882371DCDB /* Pods_LottieProgressHUD.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		DE58AD8122292FC900541A6C /* LottieProgressHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottieProgressHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE58AD8622292FC900541A6C /* LottieProgressHUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieProgressHUDTests.swift; sourceTree = "<group>"; };
 		DE58AD8822292FC900541A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEBEF5EC227B220D002A402A /* ProgressHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDView.swift; sourceTree = "<group>"; };
 		E19938572B28B6882371DCDB /* Pods_LottieProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottieProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCDB3E105747AC6DACA43E2 /* Pods-LottieProgressHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieProgressHUD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottieProgressHUD/Pods-LottieProgressHUD.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				DE50D3E0227802D800F0E7F2 /* ProgressHUDViewController.swift */,
+				DEBEF5EC227B220D002A402A /* ProgressHUDView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				DE50D3E1227802D800F0E7F2 /* ProgressHUDViewController.swift in Sources */,
 				DE50D3F42278035900F0E7F2 /* ProgressHUDRouter.swift in Sources */,
 				DE50D3EE2278034200F0E7F2 /* ProgressHUDPresenterType.swift in Sources */,
+				DEBEF5ED227B220D002A402A /* ProgressHUDView.swift in Sources */,
 				DE50D3F922780FA500F0E7F2 /* UIViewController+ProgressHUD.swift in Sources */,
 				DE50D3F02278034900F0E7F2 /* ProgressHUDBuilder.swift in Sources */,
 				DE50D3E92278032400F0E7F2 /* ProgressHUDRouterType.swift in Sources */,

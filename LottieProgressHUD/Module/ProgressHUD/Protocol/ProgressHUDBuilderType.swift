@@ -13,8 +13,8 @@ public protocol ProgressHUDBuilderType: class
 {
     static func build(
         animation: Animation,
-        backgroundColor: UIColor,
-        visualEffect: UIVisualEffect,
-        visualEffectCornerRadius: CGFloat,
-        visualEffectSizeOffset: UIOffset) -> (UIViewController & ProgressHUDViewType)
+        backgroundColor: UIColor?,
+        effect: UIVisualEffect?,
+        effectCornerRadius: CGFloat,
+        effectSizeOffset: UIOffset) -> (UIViewController & ProgressHUDViewType)
 }

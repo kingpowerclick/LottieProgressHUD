@@ -11,11 +11,11 @@ import UIKit
 
 public protocol ProgressHUDPresenterType: class
 {
-    var backgroundColor: UIColor { get }
+    var backgroundColor: UIColor? { get }
     
-    var visualEffect: UIVisualEffect { get }
-    var visualEffectCornerRadius: CGFloat { get }
-    var visualEffectSizeOffset: UIOffset { get }
+    var effect: UIVisualEffect? { get }
+    var effectCornerRadius: CGFloat { get }
+    var effectSizeOffset: UIOffset { get }
     
     var animation: Animation { get }
     
@@ -23,9 +23,9 @@ public protocol ProgressHUDPresenterType: class
     
     init(
         animation: Animation,
-        backgroundColor: UIColor,
-        visualEffect: UIVisualEffect,
-        visualEffectCornerRadius: CGFloat,
-        visualEffectSizeOffset: UIOffset,
+        backgroundColor: UIColor?,
+        effect: UIVisualEffect?,
+        effectCornerRadius: CGFloat,
+        effectSizeOffset: UIOffset,
         router: ProgressHUDRouterType)
 }
