@@ -12,20 +12,20 @@ import UIKit
 open class ProgressHUDBuilder: ProgressHUDBuilderType
 {
     public static func build(
-        animation: Animation,
-        backgroundColor: UIColor = .clear,
-        visualEffect: UIVisualEffect = UIBlurEffect(style: .prominent),
-        visualEffectCornerRadius: CGFloat = 14.0,
-        visualEffectSizeOffset: UIOffset = UIOffset(horizontal: 28.0, vertical: 28.0)) -> (UIViewController & ProgressHUDViewType)
+        animation: Animation = ProgressHUD.defaultAnimation,
+        backgroundColor: UIColor? = ProgressHUD.backgroundColor,
+        effect: UIVisualEffect? = ProgressHUD.effect,
+        effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
+        effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset) -> (UIViewController & ProgressHUDViewType)
     {
         let router = ProgressHUDRouter()
         
         let presenter = ProgressHUDPresenter(
             animation: animation,
             backgroundColor: backgroundColor,
-            visualEffect: visualEffect,
-            visualEffectCornerRadius: visualEffectCornerRadius,
-            visualEffectSizeOffset: visualEffectSizeOffset,
+            effect: effect,
+            effectCornerRadius: effectCornerRadius,
+            effectSizeOffset: effectSizeOffset,
             router: router)
         
         let viewController = ProgressHUDViewController(presenter: presenter)

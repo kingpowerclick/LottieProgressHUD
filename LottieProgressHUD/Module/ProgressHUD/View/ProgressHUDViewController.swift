@@ -15,20 +15,11 @@ class ProgressHUDViewController: UIViewController, ProgressHUDViewType
     
     let presenter: ProgressHUDPresenterType
     
-    // MARK: - Subviews
-    
-    private let contentView = UIView(frame: .zero)
-    private let visualEffectView: UIVisualEffectView
-    private let animationView: AnimationView
-    
     // MARK: - Initializer
     
     required init(presenter: ProgressHUDPresenterType)
     {
         self.presenter = presenter
-        
-        visualEffectView = UIVisualEffectView(effect: self.presenter.visualEffect)
-        animationView = AnimationView(animation: self.presenter.animation)
         
         super.init(nibName: nil, bundle: nil)
         
@@ -45,74 +36,14 @@ class ProgressHUDViewController: UIViewController, ProgressHUDViewType
     
     override func loadView()
     {
-        let view = UIView(frame: UIScreen.main.bounds)
+        let view = ProgressHUDView(
+            frame: UIScreen.main.bounds,
+            animation: presenter.animation,
+            visualEffect: presenter.effect,
+            visualEffectCornerRadius: presenter.effectCornerRadius,
+            visualEffectSizeOffset: presenter.effectSizeOffset)
+        
         view.backgroundColor = presenter.backgroundColor
-        view.addSubview(contentView)
-        
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.backgroundColor = .clear
-        contentView.layer.cornerRadius = presenter.visualEffectCornerRadius
-        contentView.clipsToBounds = true
-        contentView.addSubview(visualEffectView)
-        
-        visualEffectView.translatesAutoresizingMaskIntoConstraints = false
-        visualEffectView.contentView.addSubview(animationView)
-        
-        animationView.translatesAutoresizingMaskIntoConstraints = false
-        animationView.loopMode = .loop
-        
-        NSLayoutConstraint
-            .activate([
-                contentView
-                    .centerXAnchor
-                    .constraint(
-                        equalTo: view.centerXAnchor),
-                contentView
-                    .centerYAnchor
-                    .constraint(
-                        equalTo: view.centerYAnchor),
-                contentView
-                    .widthAnchor
-                    .constraint(
-                        equalTo: visualEffectView.widthAnchor),
-                contentView
-                    .heightAnchor
-                    .constraint(
-                        equalTo: visualEffectView.heightAnchor),
-                visualEffectView
-                    .centerXAnchor
-                    .constraint(
-                        equalTo: contentView.centerXAnchor),
-                visualEffectView
-                    .centerYAnchor
-                    .constraint(
-                        equalTo: contentView.centerYAnchor),
-                visualEffectView
-                    .widthAnchor
-                    .constraint(
-                        equalTo: animationView.widthAnchor,
-                        constant: presenter.visualEffectSizeOffset.horizontal),
-                visualEffectView
-                    .heightAnchor
-                    .constraint(
-                        equalTo: animationView.heightAnchor,
-                        constant: presenter.visualEffectSizeOffset.vertical),
-                animationView
-                    .centerXAnchor
-                    .constraint(
-                        equalTo: visualEffectView.centerXAnchor),
-                animationView
-                    .centerYAnchor
-                    .constraint(
-                        equalTo: visualEffectView.centerYAnchor),
-                animationView
-                    .widthAnchor
-                    .constraint(
-                        equalToConstant: presenter.animation.size.width),
-                animationView
-                    .heightAnchor
-                    .constraint(
-                        equalToConstant: presenter.animation.size.height) ])
         
         self.view = view
     }
@@ -121,20 +52,20 @@ class ProgressHUDViewController: UIViewController, ProgressHUDViewType
     {
         super.viewWillAppear(animated)
         
-        animationView.play()
+        (view as? ProgressHUDView)?.play()
     }
     
     override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(animated)
         
-        animationView.pause()
+        (view as? ProgressHUDView)?.pause()
     }
     
     override func viewDidDisappear(_ animated: Bool)
     {
         super.viewDidDisappear(animated)
         
-        animationView.stop()
+        (view as? ProgressHUDView)?.stop()
     }
 }

@@ -15,11 +15,11 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
     
     let animation: Animation
     
-    let backgroundColor: UIColor
+    let backgroundColor: UIColor?
     
-    let visualEffect: UIVisualEffect
-    var visualEffectCornerRadius: CGFloat
-    var visualEffectSizeOffset: UIOffset
+    let effect: UIVisualEffect?
+    var effectCornerRadius: CGFloat
+    var effectSizeOffset: UIOffset
     
     // MARK: - Router
     
@@ -29,19 +29,19 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
     
     required init(
         animation: Animation,
-        backgroundColor: UIColor,
-        visualEffect: UIVisualEffect,
-        visualEffectCornerRadius: CGFloat,
-        visualEffectSizeOffset: UIOffset,
+        backgroundColor: UIColor?,
+        effect: UIVisualEffect?,
+        effectCornerRadius: CGFloat,
+        effectSizeOffset: UIOffset,
         router: ProgressHUDRouterType)
     {
         self.animation = animation
         
         self.backgroundColor = backgroundColor
         
-        self.visualEffect = visualEffect
-        self.visualEffectCornerRadius = visualEffectCornerRadius
-        self.visualEffectSizeOffset = visualEffectSizeOffset
+        self.effect = effect
+        self.effectCornerRadius = effectCornerRadius
+        self.effectSizeOffset = effectSizeOffset
         
         self.router = router
     }
