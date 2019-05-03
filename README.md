@@ -1,4 +1,5 @@
 # LottieProgressHUD
+[![pod](https://img.shields.io/cocoapods/v/LottieProgressHUD.svg)](https://cocoapods.org/pods/LottieProgressHUD) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ProgressHUD using [Lottie](https://github.com/airbnb/lottie-ios) from Airbnb
 
