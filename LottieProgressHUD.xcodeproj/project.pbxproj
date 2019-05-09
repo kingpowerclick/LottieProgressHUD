@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		39A851A1BBFD69D91C61C618 /* Pods_LottieProgressHUDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9843C370E96FD7EFA162705A /* Pods_LottieProgressHUDTests.framework */; };
-		DE50D3E1227802D800F0E7F2 /* ProgressHUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3E0227802D800F0E7F2 /* ProgressHUDViewController.swift */; };
 		DE50D3E72278031A00F0E7F2 /* ProgressHUDViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3E62278031A00F0E7F2 /* ProgressHUDViewType.swift */; };
 		DE50D3E92278032400F0E7F2 /* ProgressHUDRouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3E82278032400F0E7F2 /* ProgressHUDRouterType.swift */; };
 		DE50D3EB2278032F00F0E7F2 /* ProgressHUDBuilderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3EA2278032F00F0E7F2 /* ProgressHUDBuilderType.swift */; };
@@ -16,7 +15,7 @@
 		DE50D3F02278034900F0E7F2 /* ProgressHUDBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3EF2278034900F0E7F2 /* ProgressHUDBuilder.swift */; };
 		DE50D3F22278035100F0E7F2 /* ProgressHUDPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3F12278035100F0E7F2 /* ProgressHUDPresenter.swift */; };
 		DE50D3F42278035900F0E7F2 /* ProgressHUDRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3F32278035900F0E7F2 /* ProgressHUDRouter.swift */; };
-		DE50D3F922780FA500F0E7F2 /* UIViewController+ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3F822780FA500F0E7F2 /* UIViewController+ProgressHUD.swift */; };
+		DE50D3F922780FA500F0E7F2 /* UIWindow+ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D3F822780FA500F0E7F2 /* UIWindow+ProgressHUD.swift */; };
 		DE50D402227811BD00F0E7F2 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D401227811BD00F0E7F2 /* ProgressHUD.swift */; };
 		DE58AD8222292FC900541A6C /* LottieProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE58AD7822292FC900541A6C /* LottieProgressHUD.framework */; };
 		DE58AD8722292FC900541A6C /* LottieProgressHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE58AD8622292FC900541A6C /* LottieProgressHUDTests.swift */; };
@@ -40,7 +39,6 @@
 		9843C370E96FD7EFA162705A /* Pods_LottieProgressHUDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LottieProgressHUDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A72C135ED814F5FD1704F03B /* Pods-LottieProgressHUDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieProgressHUDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LottieProgressHUDTests/Pods-LottieProgressHUDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3C92F1ACF225CC8FAAAE88A /* Pods-LottieProgressHUDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LottieProgressHUDTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LottieProgressHUDTests/Pods-LottieProgressHUDTests.release.xcconfig"; sourceTree = "<group>"; };
-		DE50D3E0227802D800F0E7F2 /* ProgressHUDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDViewController.swift; sourceTree = "<group>"; };
 		DE50D3E62278031A00F0E7F2 /* ProgressHUDViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDViewType.swift; sourceTree = "<group>"; };
 		DE50D3E82278032400F0E7F2 /* ProgressHUDRouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDRouterType.swift; sourceTree = "<group>"; };
 		DE50D3EA2278032F00F0E7F2 /* ProgressHUDBuilderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDBuilderType.swift; sourceTree = "<group>"; };
@@ -48,7 +46,7 @@
 		DE50D3EF2278034900F0E7F2 /* ProgressHUDBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDBuilder.swift; sourceTree = "<group>"; };
 		DE50D3F12278035100F0E7F2 /* ProgressHUDPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDPresenter.swift; sourceTree = "<group>"; };
 		DE50D3F32278035900F0E7F2 /* ProgressHUDRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDRouter.swift; sourceTree = "<group>"; };
-		DE50D3F822780FA500F0E7F2 /* UIViewController+ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ProgressHUD.swift"; sourceTree = "<group>"; };
+		DE50D3F822780FA500F0E7F2 /* UIWindow+ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+ProgressHUD.swift"; sourceTree = "<group>"; };
 		DE50D401227811BD00F0E7F2 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		DE58AD7822292FC900541A6C /* LottieProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LottieProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE58AD7B22292FC900541A6C /* LottieProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LottieProgressHUD.h; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 		DE50D3DF227802CD00F0E7F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DE50D3E0227802D800F0E7F2 /* ProgressHUDViewController.swift */,
 				DEBEF5EC227B220D002A402A /* ProgressHUDView.swift */,
 			);
 			path = View;
@@ -166,17 +163,17 @@
 		DE50D3F622780F3000F0E7F2 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				DE50D3F722780F3500F0E7F2 /* UIViewController */,
+				DE50D3F722780F3500F0E7F2 /* UIWindow */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		DE50D3F722780F3500F0E7F2 /* UIViewController */ = {
+		DE50D3F722780F3500F0E7F2 /* UIWindow */ = {
 			isa = PBXGroup;
 			children = (
-				DE50D3F822780FA500F0E7F2 /* UIViewController+ProgressHUD.swift */,
+				DE50D3F822780FA500F0E7F2 /* UIWindow+ProgressHUD.swift */,
 			);
-			path = UIViewController;
+			path = UIWindow;
 			sourceTree = "<group>";
 		};
 		DE58AD6E22292FC900541A6C = {
@@ -412,11 +409,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE50D3E1227802D800F0E7F2 /* ProgressHUDViewController.swift in Sources */,
 				DE50D3F42278035900F0E7F2 /* ProgressHUDRouter.swift in Sources */,
 				DE50D3EE2278034200F0E7F2 /* ProgressHUDPresenterType.swift in Sources */,
 				DEBEF5ED227B220D002A402A /* ProgressHUDView.swift in Sources */,
-				DE50D3F922780FA500F0E7F2 /* UIViewController+ProgressHUD.swift in Sources */,
+				DE50D3F922780FA500F0E7F2 /* UIWindow+ProgressHUD.swift in Sources */,
 				DE50D3F02278034900F0E7F2 /* ProgressHUDBuilder.swift in Sources */,
 				DE50D3E92278032400F0E7F2 /* ProgressHUDRouterType.swift in Sources */,
 				DE50D3F22278035100F0E7F2 /* ProgressHUDPresenter.swift in Sources */,

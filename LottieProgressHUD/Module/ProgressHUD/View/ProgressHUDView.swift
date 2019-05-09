@@ -9,32 +9,31 @@
 import Lottie
 import UIKit
 
-class ProgressHUDView: UIView
+class ProgressHUDView: UIView, ProgressHUDViewType
 {
     private let contentView = UIView(frame: .zero)
     private let visualEffectView: UIVisualEffectView
     private let animationView: AnimationView
     
-    private let visualEffectSizeOffset: UIOffset
+    // MARK: - Presenter
     
-    init(
-        frame: CGRect,
-        animation: Animation,
-        visualEffect: UIVisualEffect?,
-        visualEffectCornerRadius: CGFloat,
-        visualEffectSizeOffset: UIOffset)
+    let presenter: ProgressHUDPresenterType
+    
+    // MARK: - Initializer
+    
+    required init(presenter: ProgressHUDPresenterType)
     {
-        visualEffectView = UIVisualEffectView(effect: visualEffect)
-        animationView = AnimationView(animation: animation)
+        self.presenter = presenter
         
-        self.visualEffectSizeOffset = visualEffectSizeOffset
+        visualEffectView = UIVisualEffectView(effect: self.presenter.effect)
+        animationView = AnimationView(animation: self.presenter.animation)
         
-        super.init(frame: frame)
+        super.init(frame: UIScreen.main.bounds)
         
         addSubview(contentView)
         
         contentView.backgroundColor = .clear
-        contentView.layer.cornerRadius = visualEffectCornerRadius
+        contentView.layer.cornerRadius = self.presenter.effectCornerRadius
         contentView.clipsToBounds = true
         contentView.addSubview(visualEffectView)
         
@@ -60,8 +59,8 @@ class ProgressHUDView: UIView
         contentView.frame = CGRect(
             origin: .zero,
             size: CGSize(
-                width: animation.size.width + visualEffectSizeOffset.horizontal,
-                height: animation.size.height + visualEffectSizeOffset.vertical))
+                width: animation.size.width + presenter.effectSizeOffset.horizontal,
+                height: animation.size.height + presenter.effectSizeOffset.vertical))
         contentView.center = CGPoint(
             x: bounds.midX,
             y: bounds.midY)
@@ -70,26 +69,27 @@ class ProgressHUDView: UIView
         
         animationView.frame = CGRect(
             origin: CGPoint(
-                x: visualEffectSizeOffset.horizontal * 0.5,
-                y: visualEffectSizeOffset.vertical * 0.5),
+                x: presenter.effectSizeOffset.horizontal * 0.5,
+                y: presenter.effectSizeOffset.vertical * 0.5),
             size: animation.size)
     }
-}
-
-extension ProgressHUDView
-{
-    func play()
+    
+    override func willMove(toSuperview newSuperview: UIView?)
     {
+        super.willMove(toSuperview: newSuperview)
+        
+        guard newSuperview != nil else
+        {
+            return
+        }
+        
         animationView.play()
     }
     
-    func pause()
+    override func removeFromSuperview()
     {
-        animationView.pause()
-    }
-    
-    func stop()
-    {
+        super.removeFromSuperview()
+        
         animationView.stop()
     }
 }

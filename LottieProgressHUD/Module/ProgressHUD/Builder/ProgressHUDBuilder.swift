@@ -16,7 +16,7 @@ open class ProgressHUDBuilder: ProgressHUDBuilderType
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
         effect: UIVisualEffect? = ProgressHUD.effect,
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
-        effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset) -> (UIViewController & ProgressHUDViewType)
+        effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset) -> (UIView & ProgressHUDViewType)
     {
         let router = ProgressHUDRouter()
         
@@ -28,8 +28,8 @@ open class ProgressHUDBuilder: ProgressHUDBuilderType
             effectSizeOffset: effectSizeOffset,
             router: router)
         
-        let viewController = ProgressHUDViewController(presenter: presenter)
+        let view = ProgressHUDView(presenter: presenter)
         
-        return viewController
+        return view
     }
 }
