@@ -16,5 +16,5 @@ public protocol ProgressHUDBuilderType: class
         backgroundColor: UIColor?,
         effect: UIVisualEffect?,
         effectCornerRadius: CGFloat,
-        effectSizeOffset: UIOffset) -> (UIViewController & ProgressHUDViewType)
+        effectSizeOffset: UIOffset) -> (UIView & ProgressHUDViewType)
 }

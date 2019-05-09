@@ -66,99 +66,36 @@ extension ProgressHUD
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
         effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
         animated flag: Bool = true,
-        completion: (() -> Void)? = nil)
+        completion: ((Bool) -> Void)? = nil)
     {
-        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else
+        guard let window = UIApplication.shared.keyWindow else
         {
             return
         }
         
-        if let presentedViewController = rootViewController.presentedViewController
-        {
-            guard (presentedViewController is (UIViewController & ProgressHUDViewType)) == false else
-            {
-                return
-            }
-            
-            UIViewController
-                .presentingViewController(
-                    from: presentedViewController)
-                .showProgressHUD(
-                    animation: ProgressHUD.defaultAnimation,
-                    backgroundColor: backgroundColor,
-                    effect: effect,
-                    effectCornerRadius: effectCornerRadius,
-                    effectSizeOffset: effectSizeOffset,
-                    animated: flag,
-                    completion: completion)
-        }
-        else
-        {
-            rootViewController
-                .showProgressHUD(
-                    animation: ProgressHUD.defaultAnimation,
-                    backgroundColor: backgroundColor,
-                    effect: effect,
-                    effectCornerRadius: effectCornerRadius,
-                    effectSizeOffset: effectSizeOffset,
-                    animated: flag,
-                    completion: completion)
-        }
+        window
+            .showProgressHUD(
+                animation: ProgressHUD.defaultAnimation,
+                backgroundColor: backgroundColor,
+                effect: effect,
+                effectCornerRadius: effectCornerRadius,
+                effectSizeOffset: effectSizeOffset,
+                animated: flag,
+                completion: completion)
     }
     
     open class func dismiss(
         animated flag: Bool = true,
-        completion: (() -> Void)? = nil)
+        completion: ((Bool) -> Void)? = nil)
     {
-        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else
+        guard let window = UIApplication.shared.keyWindow else
         {
-            completion?()
-            
             return
         }
         
-        dismiss(in: rootViewController, animated: flag, completion: completion)
-    }
-}
-
-extension ProgressHUD
-{
-    private class func dismiss(
-        in viewController: UIViewController,
-        animated flag: Bool = true,
-        completion: (() -> Void)? = nil)
-    {
-        if let presentedViewController = viewController.presentedViewController
-        {
-            if presentedViewController is (UIViewController & ProgressHUDViewType)
-            {
-                viewController.dismissProgressHUD(animated: flag, completion: completion)
-            }
-            else
-            {
-                dismiss(in: presentedViewController, animated: flag, completion: completion)
-            }
-        }
-        else
-        {
-            completion?()
-            
-            return
-        }
-    }
-}
-
-private extension UIViewController
-{
-    class func presentingViewController(from viewController: UIViewController) -> UIViewController
-    {
-        if let presentedViewController = viewController.presentedViewController
-        {
-            return presentingViewController(from: presentedViewController)
-        }
-        else
-        {
-            return viewController
-        }
+        window
+            .dismissProgressHUD(
+                animated: flag,
+                completion: completion)
     }
 }
