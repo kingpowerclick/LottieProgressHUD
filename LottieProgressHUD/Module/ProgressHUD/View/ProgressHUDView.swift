@@ -30,6 +30,8 @@ class ProgressHUDView: UIView, ProgressHUDViewType
         
         super.init(frame: UIScreen.main.bounds)
         
+        backgroundColor = self.presenter.backgroundColor
+        
         addSubview(contentView)
         
         contentView.backgroundColor = .clear
