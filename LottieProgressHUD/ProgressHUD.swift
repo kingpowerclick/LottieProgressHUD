@@ -15,6 +15,7 @@ open class ProgressHUD
     private var effect: UIVisualEffect? = UIBlurEffect(style: .prominent)
     private var effectCornerRadius: CGFloat = 14.0
     private var effectSizeOffset = UIOffset(horizontal: 28.0, vertical: 28.0)
+    private var maxSupportedWindowLevel: UIWindow.Level = .normal
     
     private var animation: Animation?
     
@@ -56,10 +57,27 @@ extension ProgressHUD
     open class var effectSizeOffset: UIOffset {
         get { return singleton.effectSizeOffset }
         set { singleton.effectSizeOffset = newValue } }
+    
+    open class var maxSupportedWindowLevel: UIWindow.Level {
+        get { return singleton.maxSupportedWindowLevel }
+        set { singleton.maxSupportedWindowLevel = newValue } }
 }
 
 extension ProgressHUD
 {
+    private class var frontWindow: UIWindow?
+    {
+        return UIApplication
+            .shared
+            .windows
+            .last {
+                $0.screen == UIScreen.main
+                    && $0.isHidden == false
+                    && $0.alpha > 0.0
+                    && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
+                    && $0.isKeyWindow }
+    }
+    
     open class func show(
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
         effect: UIVisualEffect? = ProgressHUD.effect,
@@ -68,11 +86,10 @@ extension ProgressHUD
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {
-        guard let window = UIApplication.shared.keyWindow else
+        guard let window = frontWindow else
         {
             return
         }
-        
         window
             .showProgressHUD(
                 animation: ProgressHUD.defaultAnimation,
@@ -88,7 +105,7 @@ extension ProgressHUD
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {
-        guard let window = UIApplication.shared.keyWindow else
+        guard let window = frontWindow else
         {
             return
         }
