@@ -42,6 +42,8 @@ class ProgressHUDView: UIView, ProgressHUDViewType
         visualEffectView.contentView.addSubview(animationView)
         
         animationView.loopMode = .loop
+        
+        accessibilityIdentifier = "ProgressHUD"
     }
     
     required init?(coder aDecoder: NSCoder)
