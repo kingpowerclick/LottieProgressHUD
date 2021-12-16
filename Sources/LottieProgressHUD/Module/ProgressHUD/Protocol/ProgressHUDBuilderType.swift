@@ -9,7 +9,7 @@
 import Lottie
 import UIKit
 
-public protocol ProgressHUDBuilderType: class
+public protocol ProgressHUDBuilderType: AnyObject
 {
     static func build(
         animation: Animation,

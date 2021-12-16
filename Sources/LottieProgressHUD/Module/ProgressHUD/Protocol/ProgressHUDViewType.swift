@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol ProgressHUDViewType: class
+public protocol ProgressHUDViewType: AnyObject
 {
     var presenter: ProgressHUDPresenterType { get }
     
