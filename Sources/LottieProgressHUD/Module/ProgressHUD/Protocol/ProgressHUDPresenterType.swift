@@ -9,7 +9,7 @@
 import Lottie
 import UIKit
 
-public protocol ProgressHUDPresenterType: class
+public protocol ProgressHUDPresenterType: AnyObject
 {
     var backgroundColor: UIColor? { get }
     
