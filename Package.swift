@@ -15,7 +15,7 @@ let package = Package(
         .package(
             name: "Lottie",
             url: "https://github.com/airbnb/lottie-ios",
-            from: "3.2.1") ],
+            .upToNextMajor(from: "3.0.0")) ],
     targets: [
         .target(
             name: "LottieProgressHUD",
