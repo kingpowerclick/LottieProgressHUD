@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol ProgressHUDRouterType: class
+public protocol ProgressHUDRouterType: AnyObject
 {
     
 }
