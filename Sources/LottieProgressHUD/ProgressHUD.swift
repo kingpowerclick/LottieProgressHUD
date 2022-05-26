@@ -78,6 +78,7 @@ extension ProgressHUD
                     && $0.isKeyWindow }
     }
     
+    @MainActor
     open class func show(
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
         effect: UIVisualEffect? = ProgressHUD.effect,
@@ -101,6 +102,7 @@ extension ProgressHUD
                 completion: completion)
     }
     
+    @MainActor
     open class func dismiss(
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
