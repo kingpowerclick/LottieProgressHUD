@@ -20,6 +20,7 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
     let effect: UIVisualEffect?
     var effectCornerRadius: CGFloat
     var effectSizeOffset: UIOffset
+    let onTap: (() -> Void)?
     
     // MARK: - Router
     
@@ -33,6 +34,7 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
         effect: UIVisualEffect?,
         effectCornerRadius: CGFloat,
         effectSizeOffset: UIOffset,
+        onTap: (() -> Void)?,
         router: ProgressHUDRouterType)
     {
         self.animation = animation
@@ -42,6 +44,7 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
         self.effect = effect
         self.effectCornerRadius = effectCornerRadius
         self.effectSizeOffset = effectSizeOffset
+        self.onTap = onTap
         
         self.router = router
     }

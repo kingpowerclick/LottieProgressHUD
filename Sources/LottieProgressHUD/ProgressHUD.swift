@@ -84,6 +84,7 @@ extension ProgressHUD
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
         effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
         animated flag: Bool = true,
+        onTap: (() -> Void)? = nil,
         completion: ((Bool) -> Void)? = nil)
     {
         guard let window = frontWindow else
@@ -98,6 +99,7 @@ extension ProgressHUD
                 effectCornerRadius: effectCornerRadius,
                 effectSizeOffset: effectSizeOffset,
                 animated: flag,
+                onTap: onTap,
                 completion: completion)
     }
     
