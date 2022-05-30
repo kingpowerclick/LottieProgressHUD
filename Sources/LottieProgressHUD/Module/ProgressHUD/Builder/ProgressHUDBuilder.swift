@@ -16,7 +16,8 @@ open class ProgressHUDBuilder: ProgressHUDBuilderType
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
         effect: UIVisualEffect? = ProgressHUD.effect,
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
-        effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset) -> (UIView & ProgressHUDViewType)
+        effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
+        onTap: (() -> Void)? = nil) -> (UIView & ProgressHUDViewType)
     {
         let router = ProgressHUDRouter()
         
@@ -26,6 +27,7 @@ open class ProgressHUDBuilder: ProgressHUDBuilderType
             effect: effect,
             effectCornerRadius: effectCornerRadius,
             effectSizeOffset: effectSizeOffset,
+            onTap: onTap,
             router: router)
         
         let view = ProgressHUDView(presenter: presenter)

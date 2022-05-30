@@ -43,6 +43,8 @@ class ProgressHUDView: UIView, ProgressHUDViewType
         
         animationView.loopMode = .loop
         
+        animationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapped)))
+        
         accessibilityIdentifier = "ProgressHUD"
     }
     
@@ -95,5 +97,9 @@ class ProgressHUDView: UIView, ProgressHUDViewType
         super.removeFromSuperview()
         
         animationView.stop()
+    }
+    
+    @objc func tapped(_ sender: Any) {
+        self.presenter.onTap?()
     }
 }

@@ -16,6 +16,7 @@ public protocol ProgressHUDPresenterType: AnyObject
     var effect: UIVisualEffect? { get }
     var effectCornerRadius: CGFloat { get }
     var effectSizeOffset: UIOffset { get }
+    var onTap: (() -> Void)?  { get }
     
     var animation: Animation { get }
     
@@ -27,5 +28,6 @@ public protocol ProgressHUDPresenterType: AnyObject
         effect: UIVisualEffect?,
         effectCornerRadius: CGFloat,
         effectSizeOffset: UIOffset,
+        onTap: (() -> Void)?,
         router: ProgressHUDRouterType)
 }

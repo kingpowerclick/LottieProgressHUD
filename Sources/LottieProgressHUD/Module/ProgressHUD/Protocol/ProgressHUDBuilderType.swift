@@ -16,5 +16,7 @@ public protocol ProgressHUDBuilderType: AnyObject
         backgroundColor: UIColor?,
         effect: UIVisualEffect?,
         effectCornerRadius: CGFloat,
-        effectSizeOffset: UIOffset) -> (UIView & ProgressHUDViewType)
+        effectSizeOffset: UIOffset,
+        onTap: (() -> Void)?) -> (UIView & ProgressHUDViewType)
+    
 }

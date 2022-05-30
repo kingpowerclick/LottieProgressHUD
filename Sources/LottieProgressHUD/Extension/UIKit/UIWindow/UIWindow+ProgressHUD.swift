@@ -18,6 +18,7 @@ extension UIWindow
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
         effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
         animated flag: Bool = true,
+        onTap: (() -> Void)? = nil,
         completion: ((Bool) -> Void)? = nil)
     {
         OperationQueue
@@ -36,7 +37,8 @@ extension UIWindow
                         backgroundColor: backgroundColor,
                         effect: effect,
                         effectCornerRadius: effectCornerRadius,
-                        effectSizeOffset: effectSizeOffset)
+                        effectSizeOffset: effectSizeOffset,
+                        onTap: onTap)
                 
                 if flag
                 {
