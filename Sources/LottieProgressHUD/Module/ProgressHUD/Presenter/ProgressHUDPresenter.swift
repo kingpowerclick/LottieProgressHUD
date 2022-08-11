@@ -21,10 +21,10 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
     let effectCornerRadius: CGFloat
     let effectSizeOffset: UIOffset
     
-    let tapInsideHUDHandler: (() -> Void)?
-    let tapOutsideHUDHandler: (() -> Void)?
+    let tapContentHandler: (() -> Void)?
+    let tapBackgroundHandler: (() -> Void)?
     
-    var shouldAddTapGestureRecognizer: Bool { return (tapInsideHUDHandler ?? tapOutsideHUDHandler) != nil }
+    var shouldAddTapGestureRecognizer: Bool { return (tapContentHandler ?? tapBackgroundHandler) != nil }
     
     // MARK: - Router
     
@@ -38,8 +38,8 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
         effect: UIVisualEffect?,
         effectCornerRadius: CGFloat,
         effectSizeOffset: UIOffset,
-        tapInsideHUDHandler: (() -> Void)?,
-        tapOutsideHUDHandler: (() -> Void)?,
+        tapContentHandler: (() -> Void)?,
+        tapBackgroundHandler: (() -> Void)?,
         router: ProgressHUDRouterType)
     {
         self.animation = animation
@@ -50,8 +50,8 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
         self.effectCornerRadius = effectCornerRadius
         self.effectSizeOffset = effectSizeOffset
         
-        self.tapInsideHUDHandler = tapInsideHUDHandler
-        self.tapOutsideHUDHandler = tapOutsideHUDHandler
+        self.tapContentHandler = tapContentHandler
+        self.tapBackgroundHandler = tapBackgroundHandler
         
         self.router = router
     }

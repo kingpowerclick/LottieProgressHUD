@@ -17,8 +17,8 @@ open class ProgressHUDBuilder: ProgressHUDBuilderType
         effect: UIVisualEffect? = ProgressHUD.effect,
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
         effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
-        tapInsideHUDHandler: (() -> Void)?,
-        tapOutsideHUDHandler: (() -> Void)?) -> (UIView & ProgressHUDViewType)
+        tapContentHandler: (() -> Void)?,
+        tapBackgroundHandler: (() -> Void)?) -> (UIView & ProgressHUDViewType)
     {
         let router = ProgressHUDRouter()
         
@@ -28,8 +28,8 @@ open class ProgressHUDBuilder: ProgressHUDBuilderType
             effect: effect,
             effectCornerRadius: effectCornerRadius,
             effectSizeOffset: effectSizeOffset,
-            tapInsideHUDHandler: tapInsideHUDHandler,
-            tapOutsideHUDHandler: tapOutsideHUDHandler,
+            tapContentHandler: tapContentHandler,
+            tapBackgroundHandler: tapBackgroundHandler,
             router: router)
         
         let view = ProgressHUDView(presenter: presenter)

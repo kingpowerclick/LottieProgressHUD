@@ -119,11 +119,11 @@ class ProgressHUDView: UIView, ProgressHUDViewType
         
         if contentView.frame.contains(point)
         {
-            presenter.tapInsideHUDHandler?()
+            presenter.tapContentHandler?()
         }
         else
         {
-            presenter.tapOutsideHUDHandler?()
+            presenter.tapBackgroundHandler?()
         }
     }
 }

@@ -18,8 +18,8 @@ extension UIWindow
         effect: UIVisualEffect? = ProgressHUD.effect,
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
         effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
-        tapInsideHUDHandler: (() -> Void)? = ProgressHUD.tapInsideHUDHandler,
-        tapOutsideHUDHandler: (() -> Void)? = ProgressHUD.tapOutsideHUDHandler,
+        tapContentHandler: (() -> Void)? = ProgressHUD.tapContentHandler,
+        tapBackgroundHandler: (() -> Void)? = ProgressHUD.tapBackgroundHandler,
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {
@@ -40,8 +40,8 @@ extension UIWindow
                         effect: effect,
                         effectCornerRadius: effectCornerRadius,
                         effectSizeOffset: effectSizeOffset,
-                        tapInsideHUDHandler: tapInsideHUDHandler,
-                        tapOutsideHUDHandler: tapOutsideHUDHandler)
+                        tapContentHandler: tapContentHandler,
+                        tapBackgroundHandler: tapBackgroundHandler)
                 
                 if flag
                 {

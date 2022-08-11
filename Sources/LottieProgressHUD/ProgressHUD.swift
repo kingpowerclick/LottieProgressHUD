@@ -16,8 +16,8 @@ open class ProgressHUD
     private var effectCornerRadius: CGFloat = 14.0
     private var effectSizeOffset = UIOffset(horizontal: 28.0, vertical: 28.0)
     private var maxSupportedWindowLevel: UIWindow.Level = .normal
-    private var tapInsideHUDHandler: (() -> Void)?
-    private var tapOutsideHUDHandler: (() -> Void)?
+    private var tapContentHandler: (() -> Void)?
+    private var tapBackgroundHandler: (() -> Void)?
     
     open class var backgroundColor: UIColor? {
         get { return singleton.backgroundColor }
@@ -39,13 +39,13 @@ open class ProgressHUD
         get { return singleton.maxSupportedWindowLevel }
         set { singleton.maxSupportedWindowLevel = newValue } }
     
-    open class var tapInsideHUDHandler: (() -> Void)? {
-        get { return singleton.tapInsideHUDHandler }
-        set { singleton.tapInsideHUDHandler = newValue } }
+    open class var tapContentHandler: (() -> Void)? {
+        get { return singleton.tapContentHandler }
+        set { singleton.tapContentHandler = newValue } }
     
-    open class var tapOutsideHUDHandler: (() -> Void)? {
-        get { return singleton.tapOutsideHUDHandler }
-        set { singleton.tapOutsideHUDHandler = newValue } }
+    open class var tapBackgroundHandler: (() -> Void)? {
+        get { return singleton.tapBackgroundHandler }
+        set { singleton.tapBackgroundHandler = newValue } }
     
     private var animation: Animation?
     
@@ -57,8 +57,8 @@ open class ProgressHUD
         effect: UIVisualEffect? = ProgressHUD.effect,
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
         effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
-        tapInsideHUDHandler: (() -> Void)? = ProgressHUD.tapInsideHUDHandler,
-        tapOutsideHUDHandler: (() -> Void)? = ProgressHUD.tapOutsideHUDHandler,
+        tapContentHandler: (() -> Void)? = ProgressHUD.tapContentHandler,
+        tapBackgroundHandler: (() -> Void)? = ProgressHUD.tapBackgroundHandler,
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {
@@ -74,6 +74,8 @@ open class ProgressHUD
                 effect: effect,
                 effectCornerRadius: effectCornerRadius,
                 effectSizeOffset: effectSizeOffset,
+                tapContentHandler: tapContentHandler,
+                tapBackgroundHandler: tapBackgroundHandler,
                 animated: flag,
                 completion: completion)
     }

@@ -17,6 +17,6 @@ public protocol ProgressHUDBuilderType: AnyObject
         effect: UIVisualEffect?,
         effectCornerRadius: CGFloat,
         effectSizeOffset: UIOffset,
-        tapInsideHUDHandler: (() -> Void)?,
-        tapOutsideHUDHandler: (() -> Void)?) -> (UIView & ProgressHUDViewType)
+        tapContentHandler: (() -> Void)?,
+        tapBackgroundHandler: (() -> Void)?) -> (UIView & ProgressHUDViewType)
 }
