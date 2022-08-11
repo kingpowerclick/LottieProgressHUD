@@ -18,8 +18,13 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
     let backgroundColor: UIColor?
     
     let effect: UIVisualEffect?
-    var effectCornerRadius: CGFloat
-    var effectSizeOffset: UIOffset
+    let effectCornerRadius: CGFloat
+    let effectSizeOffset: UIOffset
+    
+    let tapContentHandler: (() -> Void)?
+    let tapBackgroundHandler: (() -> Void)?
+    
+    var shouldAddTapGestureRecognizer: Bool { return (tapContentHandler ?? tapBackgroundHandler) != nil }
     
     // MARK: - Router
     
@@ -33,6 +38,8 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
         effect: UIVisualEffect?,
         effectCornerRadius: CGFloat,
         effectSizeOffset: UIOffset,
+        tapContentHandler: (() -> Void)?,
+        tapBackgroundHandler: (() -> Void)?,
         router: ProgressHUDRouterType)
     {
         self.animation = animation
@@ -42,6 +49,9 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
         self.effect = effect
         self.effectCornerRadius = effectCornerRadius
         self.effectSizeOffset = effectSizeOffset
+        
+        self.tapContentHandler = tapContentHandler
+        self.tapBackgroundHandler = tapBackgroundHandler
         
         self.router = router
     }
