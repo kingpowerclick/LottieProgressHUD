@@ -11,7 +11,6 @@ import UIKit
 
 extension UIWindow
 {
-    @MainActor
     public func showProgressHUD(
         animation: Animation = ProgressHUD.defaultAnimation,
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
@@ -64,7 +63,6 @@ extension UIWindow
                 } }
     }
     
-    @MainActor
     public func dismissProgressHUD(
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
