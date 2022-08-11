@@ -10,6 +10,10 @@ let package = Package(
     products: [
         .library(
             name: "LottieProgressHUD",
+            targets: [ "LottieProgressHUD" ]),
+        .library(
+            name: "LottieProgressHUD-Dynamic",
+            type: .dynamic,
             targets: [ "LottieProgressHUD" ]) ],
     dependencies: [
         .package(

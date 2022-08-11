@@ -16,10 +16,85 @@ open class ProgressHUD
     private var effectCornerRadius: CGFloat = 14.0
     private var effectSizeOffset = UIOffset(horizontal: 28.0, vertical: 28.0)
     private var maxSupportedWindowLevel: UIWindow.Level = .normal
+    private var tapContentHandler: (() -> Void)?
+    private var tapBackgroundHandler: (() -> Void)?
+    
+    open class var backgroundColor: UIColor? {
+        get { return singleton.backgroundColor }
+        set { singleton.backgroundColor = newValue } }
+    
+    open class var effect: UIVisualEffect? {
+        get { return singleton.effect }
+        set { singleton.effect = newValue } }
+    
+    open class var effectCornerRadius: CGFloat {
+        get { return singleton.effectCornerRadius }
+        set { singleton.effectCornerRadius = newValue } }
+    
+    open class var effectSizeOffset: UIOffset {
+        get { return singleton.effectSizeOffset }
+        set { singleton.effectSizeOffset = newValue } }
+    
+    open class var maxSupportedWindowLevel: UIWindow.Level {
+        get { return singleton.maxSupportedWindowLevel }
+        set { singleton.maxSupportedWindowLevel = newValue } }
+    
+    open class var tapContentHandler: (() -> Void)? {
+        get { return singleton.tapContentHandler }
+        set { singleton.tapContentHandler = newValue } }
+    
+    open class var tapBackgroundHandler: (() -> Void)? {
+        get { return singleton.tapBackgroundHandler }
+        set { singleton.tapBackgroundHandler = newValue } }
     
     private var animation: Animation?
     
     private static let singleton = ProgressHUD()
+    
+    @MainActor
+    open class func show(
+        backgroundColor: UIColor? = ProgressHUD.backgroundColor,
+        effect: UIVisualEffect? = ProgressHUD.effect,
+        effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
+        effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
+        tapContentHandler: (() -> Void)? = ProgressHUD.tapContentHandler,
+        tapBackgroundHandler: (() -> Void)? = ProgressHUD.tapBackgroundHandler,
+        animated flag: Bool = true,
+        completion: ((Bool) -> Void)? = nil)
+    {
+        guard let window = frontWindow else
+        {
+            return
+        }
+        
+        window
+            .showProgressHUD(
+                animation: ProgressHUD.defaultAnimation,
+                backgroundColor: backgroundColor,
+                effect: effect,
+                effectCornerRadius: effectCornerRadius,
+                effectSizeOffset: effectSizeOffset,
+                tapContentHandler: tapContentHandler,
+                tapBackgroundHandler: tapBackgroundHandler,
+                animated: flag,
+                completion: completion)
+    }
+    
+    @MainActor
+    open class func dismiss(
+        animated flag: Bool = true,
+        completion: ((Bool) -> Void)? = nil)
+    {
+        guard let window = frontWindow else
+        {
+            return
+        }
+        
+        window
+            .dismissProgressHUD(
+                animated: flag,
+                completion: completion)
+    }
 }
 
 extension ProgressHUD
@@ -41,78 +116,49 @@ extension ProgressHUD
         
         return animation
     }
-    
-    open class var backgroundColor: UIColor? {
-        get { return singleton.backgroundColor }
-        set { singleton.backgroundColor = newValue } }
-    
-    open class var effect: UIVisualEffect? {
-        get { return singleton.effect }
-        set { singleton.effect = newValue } }
-    
-    open class var effectCornerRadius: CGFloat {
-        get { return singleton.effectCornerRadius }
-        set { singleton.effectCornerRadius = newValue } }
-    
-    open class var effectSizeOffset: UIOffset {
-        get { return singleton.effectSizeOffset }
-        set { singleton.effectSizeOffset = newValue } }
-    
-    open class var maxSupportedWindowLevel: UIWindow.Level {
-        get { return singleton.maxSupportedWindowLevel }
-        set { singleton.maxSupportedWindowLevel = newValue } }
 }
 
 extension ProgressHUD
 {
     private class var frontWindow: UIWindow?
     {
-        return UIApplication
-            .shared
-            .windows
-            .last {
-                $0.screen == UIScreen.main
+        if #available(iOS 13.0, *)
+        {
+            let window = UIApplication
+                .shared
+                .connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .last { $0.activationState == .foregroundActive }?
+                .windows
+                .last {
+                    $0.screen == UIScreen.main
                     && $0.isHidden == false
                     && $0.alpha > 0.0
                     && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
                     && $0.isKeyWindow }
-    }
-    
-    open class func show(
-        backgroundColor: UIColor? = ProgressHUD.backgroundColor,
-        effect: UIVisualEffect? = ProgressHUD.effect,
-        effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
-        effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
-        animated flag: Bool = true,
-        completion: ((Bool) -> Void)? = nil)
-    {
-        guard let window = frontWindow else
-        {
-            return
+            
+            return window
+            ?? UIApplication
+                .shared
+                .windows
+                .last {
+                    $0.screen == UIScreen.main
+                    && $0.isHidden == false
+                    && $0.alpha > 0.0
+                    && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
+                    && $0.isKeyWindow }
         }
-        window
-            .showProgressHUD(
-                animation: ProgressHUD.defaultAnimation,
-                backgroundColor: backgroundColor,
-                effect: effect,
-                effectCornerRadius: effectCornerRadius,
-                effectSizeOffset: effectSizeOffset,
-                animated: flag,
-                completion: completion)
-    }
-    
-    open class func dismiss(
-        animated flag: Bool = true,
-        completion: ((Bool) -> Void)? = nil)
-    {
-        guard let window = frontWindow else
+        else
         {
-            return
+            return UIApplication
+                .shared
+                .windows
+                .last {
+                    $0.screen == UIScreen.main
+                    && $0.isHidden == false
+                    && $0.alpha > 0.0
+                    && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
+                    && $0.isKeyWindow }
         }
-        
-        window
-            .dismissProgressHUD(
-                animated: flag,
-                completion: completion)
     }
 }
