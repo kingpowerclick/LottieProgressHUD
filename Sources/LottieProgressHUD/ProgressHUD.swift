@@ -51,7 +51,6 @@ open class ProgressHUD
     
     private static let singleton = ProgressHUD()
     
-    @MainActor
     open class func show(
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
         effect: UIVisualEffect? = ProgressHUD.effect,
@@ -80,7 +79,6 @@ open class ProgressHUD
                 completion: completion)
     }
     
-    @MainActor
     open class func dismiss(
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
