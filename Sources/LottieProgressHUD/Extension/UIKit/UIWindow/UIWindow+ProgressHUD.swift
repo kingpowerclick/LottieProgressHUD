@@ -11,6 +11,7 @@ import UIKit
 
 extension UIWindow
 {
+    @MainActor
     public func showProgressHUD(
         animation: Animation = ProgressHUD.defaultAnimation,
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
@@ -22,77 +23,72 @@ extension UIWindow
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {
-        OperationQueue
-            .main
-            .addOperation { [weak self] in
-                guard self?.subviews.contains(where: { $0 is ProgressHUDViewType }) == false else
-                {
-                    completion?(false)
-                    
-                    return
-                }
-                
-                let view = ProgressHUDBuilder
-                    .build(
-                        animation: animation,
-                        backgroundColor: backgroundColor,
-                        effect: effect,
-                        effectCornerRadius: effectCornerRadius,
-                        effectSizeOffset: effectSizeOffset,
-                        tapContentHandler: tapContentHandler,
-                        tapBackgroundHandler: tapBackgroundHandler)
-                
-                if flag
-                {
-                    view.alpha = 0.0
-                    
-                    self?.addSubview(view)
-                    
-                    UIView
-                        .animate(
-                            withDuration: 1.0 / .pi,
-                            animations: { [weak view] in
-                                view?.alpha = 1.0 },
-                            completion: completion)
-                }
-                else
-                {
-                    self?.addSubview(view)
-                    
-                    completion?(false)
-                } }
+        guard subviews.contains(where: { $0 is ProgressHUDViewType }) == false else
+        {
+            completion?(false)
+            
+            return
+        }
+        
+        let view = ProgressHUDBuilder
+            .build(
+                animation: animation,
+                backgroundColor: backgroundColor,
+                effect: effect,
+                effectCornerRadius: effectCornerRadius,
+                effectSizeOffset: effectSizeOffset,
+                tapContentHandler: tapContentHandler,
+                tapBackgroundHandler: tapBackgroundHandler)
+        
+        if flag
+        {
+            view.alpha = 0.0
+            
+            addSubview(view)
+            
+            UIView
+                .animate(
+                    withDuration: 1.0 / .pi,
+                    animations: { [weak view] in
+                        view?.alpha = 1.0 },
+                    completion: completion)
+        }
+        else
+        {
+            addSubview(view)
+            
+            completion?(false)
+        }
     }
     
+    @MainActor
     public func dismissProgressHUD(
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {
-        OperationQueue
-            .main
-            .addOperation { [weak self] in
-                guard let view = self?.subviews.last(where: { $0 is (UIView & ProgressHUDViewType) }) else
-                {
-                    completion?(false)
-                    
-                    return
-                }
-                
-                if flag
-                {
-                    UIView
-                        .animate(
-                            withDuration: 1.0 / .pi,
-                            animations: { [weak view] in
-                                view?.alpha = 0.0 },
-                            completion: { [weak view] finished in
-                                view?.removeFromSuperview()
-                                completion?(finished) })
-                }
-                else
-                {
-                    view.removeFromSuperview()
-                    
-                    completion?(false)
-                } }
+        guard let view = subviews.last(where: { $0 is (UIView & ProgressHUDViewType) }) else
+        {
+            completion?(false)
+            
+            return
+        }
+        
+        if flag
+        {
+            UIView
+                .animate(
+                    withDuration: 1.0 / .pi,
+                    animations: { [weak view] in
+                        view?.alpha = 0.0 },
+                    completion: { [weak view] finished in
+                        view?.removeFromSuperview()
+                        completion?(finished) })
+        }
+        else
+        {
+            view.removeFromSuperview()
+            
+            completion?(false)
+        }
     }
 }

@@ -61,37 +61,39 @@ open class ProgressHUD
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {
-        guard let window = frontWindow else
+        Task
         {
-            return
+            await MainActor.run
+            {
+                frontWindow?
+                    .showProgressHUD(
+                        animation: ProgressHUD.defaultAnimation,
+                        backgroundColor: backgroundColor,
+                        effect: effect,
+                        effectCornerRadius: effectCornerRadius,
+                        effectSizeOffset: effectSizeOffset,
+                        tapContentHandler: tapContentHandler,
+                        tapBackgroundHandler: tapBackgroundHandler,
+                        animated: flag,
+                        completion: completion)
+            }
         }
-        
-        window
-            .showProgressHUD(
-                animation: ProgressHUD.defaultAnimation,
-                backgroundColor: backgroundColor,
-                effect: effect,
-                effectCornerRadius: effectCornerRadius,
-                effectSizeOffset: effectSizeOffset,
-                tapContentHandler: tapContentHandler,
-                tapBackgroundHandler: tapBackgroundHandler,
-                animated: flag,
-                completion: completion)
     }
     
     open class func dismiss(
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {
-        guard let window = frontWindow else
+        Task
         {
-            return
+            await MainActor.run
+            {
+                frontWindow?
+                    .dismissProgressHUD(
+                        animated: flag,
+                        completion: completion)
+            }
         }
-        
-        window
-            .dismissProgressHUD(
-                animated: flag,
-                completion: completion)
     }
 }
 
@@ -120,43 +122,28 @@ extension ProgressHUD
 {
     private class var frontWindow: UIWindow?
     {
-        if #available(iOS 13.0, *)
-        {
-            let window = UIApplication
-                .shared
-                .connectedScenes
-                .compactMap { $0 as? UIWindowScene }
-                .last { $0.activationState == .foregroundActive }?
-                .windows
-                .last {
-                    $0.screen == UIScreen.main
-                    && $0.isHidden == false
-                    && $0.alpha > 0.0
-                    && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
-                    && $0.isKeyWindow }
-            
-            return window
-            ?? UIApplication
-                .shared
-                .windows
-                .last {
-                    $0.screen == UIScreen.main
-                    && $0.isHidden == false
-                    && $0.alpha > 0.0
-                    && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
-                    && $0.isKeyWindow }
-        }
-        else
-        {
-            return UIApplication
-                .shared
-                .windows
-                .last {
-                    $0.screen == UIScreen.main
-                    && $0.isHidden == false
-                    && $0.alpha > 0.0
-                    && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
-                    && $0.isKeyWindow }
-        }
+        let window = UIApplication
+            .shared
+            .connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .last { $0.activationState == .foregroundActive }?
+            .windows
+            .last {
+                $0.screen == UIScreen.main
+                && $0.isHidden == false
+                && $0.alpha > 0.0
+                && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
+                && $0.isKeyWindow }
+        
+        return window
+        ?? UIApplication
+            .shared
+            .windows
+            .last {
+                $0.screen == UIScreen.main
+                && $0.isHidden == false
+                && $0.alpha > 0.0
+                && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
+                && $0.isKeyWindow }
     }
 }
