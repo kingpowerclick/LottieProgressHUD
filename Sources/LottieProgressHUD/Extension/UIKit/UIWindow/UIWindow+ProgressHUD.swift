@@ -11,12 +11,15 @@ import UIKit
 
 extension UIWindow
 {
-    open func showProgressHUD(
+    @MainActor
+    public func showProgressHUD(
         animation: Animation = ProgressHUD.defaultAnimation,
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
         effect: UIVisualEffect? = ProgressHUD.effect,
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
         effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
+        tapInsideHUDHandler: (() -> Void)? = ProgressHUD.tapInsideHUDHandler,
+        tapOutsideHUDHandler: (() -> Void)? = ProgressHUD.tapOutsideHUDHandler,
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {
@@ -36,7 +39,9 @@ extension UIWindow
                         backgroundColor: backgroundColor,
                         effect: effect,
                         effectCornerRadius: effectCornerRadius,
-                        effectSizeOffset: effectSizeOffset)
+                        effectSizeOffset: effectSizeOffset,
+                        tapInsideHUDHandler: tapInsideHUDHandler,
+                        tapOutsideHUDHandler: tapOutsideHUDHandler)
                 
                 if flag
                 {
@@ -59,7 +64,8 @@ extension UIWindow
                 } }
     }
     
-    open func dismissProgressHUD(
+    @MainActor
+    public func dismissProgressHUD(
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {

@@ -15,6 +15,8 @@ class ProgressHUDView: UIView, ProgressHUDViewType
     private let visualEffectView: UIVisualEffectView
     private let animationView: AnimationView
     
+    private lazy var tapGestureRecognizer = { return UITapGestureRecognizer(target: self, action: #selector(tapGestureDidRecognize(_:))) }()
+    
     // MARK: - Presenter
     
     let presenter: ProgressHUDPresenterType
@@ -40,6 +42,11 @@ class ProgressHUDView: UIView, ProgressHUDViewType
         contentView.addSubview(visualEffectView)
         
         visualEffectView.contentView.addSubview(animationView)
+        
+        if self.presenter.shouldAddTapGestureRecognizer
+        {
+            addGestureRecognizer(tapGestureRecognizer)
+        }
         
         animationView.loopMode = .loop
         
@@ -95,5 +102,28 @@ class ProgressHUDView: UIView, ProgressHUDViewType
         super.removeFromSuperview()
         
         animationView.stop()
+    }
+    
+    // MARK: - Selector
+    
+    @objc
+    private func tapGestureDidRecognize(_ sender: UITapGestureRecognizer)
+    {
+        guard presenter.shouldAddTapGestureRecognizer,
+              sender.view != nil else
+        {
+            return
+        }
+        
+        let point = tapGestureRecognizer.location(in: sender.view)
+        
+        if contentView.frame.contains(point)
+        {
+            presenter.tapInsideHUDHandler?()
+        }
+        else
+        {
+            presenter.tapOutsideHUDHandler?()
+        }
     }
 }

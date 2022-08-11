@@ -17,6 +17,10 @@ public protocol ProgressHUDPresenterType: AnyObject
     var effectCornerRadius: CGFloat { get }
     var effectSizeOffset: UIOffset { get }
     
+    var tapInsideHUDHandler: (() -> Void)? { get }
+    var tapOutsideHUDHandler: (() -> Void)? { get }
+    var shouldAddTapGestureRecognizer: Bool { get }
+    
     var animation: Animation { get }
     
     var router: ProgressHUDRouterType { get }
@@ -27,5 +31,7 @@ public protocol ProgressHUDPresenterType: AnyObject
         effect: UIVisualEffect?,
         effectCornerRadius: CGFloat,
         effectSizeOffset: UIOffset,
+        tapInsideHUDHandler: (() -> Void)?,
+        tapOutsideHUDHandler: (() -> Void)?,
         router: ProgressHUDRouterType)
 }

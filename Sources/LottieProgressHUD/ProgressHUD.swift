@@ -16,31 +16,8 @@ open class ProgressHUD
     private var effectCornerRadius: CGFloat = 14.0
     private var effectSizeOffset = UIOffset(horizontal: 28.0, vertical: 28.0)
     private var maxSupportedWindowLevel: UIWindow.Level = .normal
-    
-    private var animation: Animation?
-    
-    private static let singleton = ProgressHUD()
-}
-
-extension ProgressHUD
-{
-    public class func register(animation: Animation)
-    {
-        singleton.animation = animation
-    }
-}
-
-extension ProgressHUD
-{
-    public class var defaultAnimation: Animation
-    {
-        guard let animation = ProgressHUD.singleton.animation else
-        {
-            fatalError("Default animation not registered by ProgressHUD")
-        }
-        
-        return animation
-    }
+    private var tapInsideHUDHandler: (() -> Void)?
+    private var tapOutsideHUDHandler: (() -> Void)?
     
     open class var backgroundColor: UIColor? {
         get { return singleton.backgroundColor }
@@ -61,22 +38,18 @@ extension ProgressHUD
     open class var maxSupportedWindowLevel: UIWindow.Level {
         get { return singleton.maxSupportedWindowLevel }
         set { singleton.maxSupportedWindowLevel = newValue } }
-}
-
-extension ProgressHUD
-{
-    private class var frontWindow: UIWindow?
-    {
-        return UIApplication
-            .shared
-            .windows
-            .last {
-                $0.screen == UIScreen.main
-                    && $0.isHidden == false
-                    && $0.alpha > 0.0
-                    && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
-                    && $0.isKeyWindow }
-    }
+    
+    open class var tapInsideHUDHandler: (() -> Void)? {
+        get { return singleton.tapInsideHUDHandler }
+        set { singleton.tapInsideHUDHandler = newValue } }
+    
+    open class var tapOutsideHUDHandler: (() -> Void)? {
+        get { return singleton.tapOutsideHUDHandler }
+        set { singleton.tapOutsideHUDHandler = newValue } }
+    
+    private var animation: Animation?
+    
+    private static let singleton = ProgressHUD()
     
     @MainActor
     open class func show(
@@ -84,6 +57,8 @@ extension ProgressHUD
         effect: UIVisualEffect? = ProgressHUD.effect,
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
         effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
+        tapInsideHUDHandler: (() -> Void)? = ProgressHUD.tapInsideHUDHandler,
+        tapOutsideHUDHandler: (() -> Void)? = ProgressHUD.tapOutsideHUDHandler,
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {
@@ -91,6 +66,7 @@ extension ProgressHUD
         {
             return
         }
+        
         window
             .showProgressHUD(
                 animation: ProgressHUD.defaultAnimation,
@@ -116,5 +92,71 @@ extension ProgressHUD
             .dismissProgressHUD(
                 animated: flag,
                 completion: completion)
+    }
+}
+
+extension ProgressHUD
+{
+    public class func register(animation: Animation)
+    {
+        singleton.animation = animation
+    }
+}
+
+extension ProgressHUD
+{
+    public class var defaultAnimation: Animation
+    {
+        guard let animation = ProgressHUD.singleton.animation else
+        {
+            fatalError("Default animation not registered by ProgressHUD")
+        }
+        
+        return animation
+    }
+}
+
+extension ProgressHUD
+{
+    private class var frontWindow: UIWindow?
+    {
+        if #available(iOS 13.0, *)
+        {
+            let window = UIApplication
+                .shared
+                .connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .last { $0.activationState == .foregroundActive }?
+                .windows
+                .last {
+                    $0.screen == UIScreen.main
+                    && $0.isHidden == false
+                    && $0.alpha > 0.0
+                    && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
+                    && $0.isKeyWindow }
+            
+            return window
+            ?? UIApplication
+                .shared
+                .windows
+                .last {
+                    $0.screen == UIScreen.main
+                    && $0.isHidden == false
+                    && $0.alpha > 0.0
+                    && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
+                    && $0.isKeyWindow }
+        }
+        else
+        {
+            return UIApplication
+                .shared
+                .windows
+                .last {
+                    $0.screen == UIScreen.main
+                    && $0.isHidden == false
+                    && $0.alpha > 0.0
+                    && UIWindow.Level.normal...maxSupportedWindowLevel ~= $0.windowLevel
+                    && $0.isKeyWindow }
+        }
     }
 }
