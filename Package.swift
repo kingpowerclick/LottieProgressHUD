@@ -4,9 +4,9 @@ import PackageDescription
 let package = Package(
     name: "LottieProgressHUD",
     platforms: [
-        .iOS(.v11),
-        .tvOS(.v11),
-        .watchOS(.v4) ],
+        .iOS(.v13),
+        .tvOS(.v13),
+        .watchOS(.v6) ],
     products: [
         .library(
             name: "LottieProgressHUD",
