@@ -21,12 +21,12 @@ public protocol ProgressHUDPresenterType: AnyObject
     var tapBackgroundHandler: (() -> Void)? { get }
     var shouldAddTapGestureRecognizer: Bool { get }
     
-    var animation: Animation { get }
+    var animation: LottieAnimation { get }
     
     var router: ProgressHUDRouterType { get }
     
     init(
-        animation: Animation,
+        animation: LottieAnimation,
         backgroundColor: UIColor?,
         effect: UIVisualEffect?,
         effectCornerRadius: CGFloat,

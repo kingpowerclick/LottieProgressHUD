@@ -13,7 +13,7 @@ extension UIWindow
 {
     @MainActor
     public func showProgressHUD(
-        animation: Animation = ProgressHUD.defaultAnimation,
+        animation: LottieAnimation = ProgressHUD.defaultAnimation,
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
         effect: UIVisualEffect? = ProgressHUD.effect,
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
