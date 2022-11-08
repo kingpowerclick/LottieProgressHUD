@@ -13,7 +13,7 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
 {
     // MARK: -
     
-    let animation: Animation
+    let animation: LottieAnimation
     
     let backgroundColor: UIColor?
     
@@ -33,7 +33,7 @@ class ProgressHUDPresenter: ProgressHUDPresenterType
     // MARK: - Initializer
     
     required init(
-        animation: Animation,
+        animation: LottieAnimation,
         backgroundColor: UIColor?,
         effect: UIVisualEffect?,
         effectCornerRadius: CGFloat,

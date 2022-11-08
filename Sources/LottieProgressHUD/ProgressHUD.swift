@@ -47,7 +47,7 @@ open class ProgressHUD
         get { return singleton.tapBackgroundHandler }
         set { singleton.tapBackgroundHandler = newValue } }
     
-    private var animation: Animation?
+    private var animation: LottieAnimation?
     
     private static let singleton = ProgressHUD()
     
@@ -99,7 +99,7 @@ open class ProgressHUD
 
 extension ProgressHUD
 {
-    public class func register(animation: Animation)
+    public class func register(animation: LottieAnimation)
     {
         singleton.animation = animation
     }
@@ -107,7 +107,7 @@ extension ProgressHUD
 
 extension ProgressHUD
 {
-    public class var defaultAnimation: Animation
+    public class var defaultAnimation: LottieAnimation
     {
         guard let animation = ProgressHUD.singleton.animation else
         {

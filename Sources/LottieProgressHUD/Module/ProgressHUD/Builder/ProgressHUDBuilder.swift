@@ -12,7 +12,7 @@ import UIKit
 open class ProgressHUDBuilder: ProgressHUDBuilderType
 {
     public static func build(
-        animation: Animation = ProgressHUD.defaultAnimation,
+        animation: LottieAnimation = ProgressHUD.defaultAnimation,
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
         effect: UIVisualEffect? = ProgressHUD.effect,
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,

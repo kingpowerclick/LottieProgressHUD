@@ -12,7 +12,7 @@ import UIKit
 public protocol ProgressHUDBuilderType: AnyObject
 {
     static func build(
-        animation: Animation,
+        animation: LottieAnimation,
         backgroundColor: UIColor?,
         effect: UIVisualEffect?,
         effectCornerRadius: CGFloat,

@@ -13,7 +13,7 @@ class ProgressHUDView: UIView, ProgressHUDViewType
 {
     private let contentView = UIView(frame: .zero)
     private let visualEffectView: UIVisualEffectView
-    private let animationView: AnimationView
+    private let animationView: LottieAnimationView
     
     private lazy var tapGestureRecognizer = { return UITapGestureRecognizer(target: self, action: #selector(tapGestureDidRecognize(_:))) }()
     
@@ -28,7 +28,7 @@ class ProgressHUDView: UIView, ProgressHUDViewType
         self.presenter = presenter
         
         visualEffectView = UIVisualEffectView(effect: self.presenter.effect)
-        animationView = AnimationView(animation: self.presenter.animation)
+        animationView = LottieAnimationView(animation: self.presenter.animation)
         
         super.init(frame: UIScreen.main.bounds)
         
