@@ -1,12 +1,12 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
     name: "LottieProgressHUD",
     platforms: [
-        .iOS(.v13),
-        .tvOS(.v13),
-        .watchOS(.v6) ],
+        .iOS(.v14),
+        .tvOS(.v14),
+        .watchOS(.v7) ],
     products: [
         .library(
             name: "LottieProgressHUD",
@@ -17,14 +17,13 @@ let package = Package(
             targets: [ "LottieProgressHUD" ]) ],
     dependencies: [
         .package(
-            name: "Lottie",
             url: "https://github.com/airbnb/lottie-ios",
             .upToNextMajor(from: "4.0.0")) ],
     targets: [
         .target(
             name: "LottieProgressHUD",
             dependencies: [
-                "Lottie" ]),
+                .product(name: "Lottie", package: "lottie-ios") ]),
         .testTarget(
             name: "LottieProgressHUDTests",
             dependencies: [ "LottieProgressHUD" ]) ],

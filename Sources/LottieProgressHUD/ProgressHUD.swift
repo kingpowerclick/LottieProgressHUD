@@ -51,6 +51,7 @@ open class ProgressHUD
     
     private static let singleton = ProgressHUD()
     
+    @MainActor
     open class func show(
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
         effect: UIVisualEffect? = ProgressHUD.effect,
@@ -61,39 +62,28 @@ open class ProgressHUD
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {
-        Task
-        {
-            await MainActor.run
-            {
-                frontWindow?
-                    .showProgressHUD(
-                        animation: ProgressHUD.defaultAnimation,
-                        backgroundColor: backgroundColor,
-                        effect: effect,
-                        effectCornerRadius: effectCornerRadius,
-                        effectSizeOffset: effectSizeOffset,
-                        tapContentHandler: tapContentHandler,
-                        tapBackgroundHandler: tapBackgroundHandler,
-                        animated: flag,
-                        completion: completion)
-            }
-        }
+        frontWindow?
+            .showProgressHUD(
+                animation: ProgressHUD.defaultAnimation,
+                backgroundColor: backgroundColor,
+                effect: effect,
+                effectCornerRadius: effectCornerRadius,
+                effectSizeOffset: effectSizeOffset,
+                tapContentHandler: tapContentHandler,
+                tapBackgroundHandler: tapBackgroundHandler,
+                animated: flag,
+                completion: completion)
     }
     
+    @MainActor
     open class func dismiss(
         animated flag: Bool = true,
         completion: ((Bool) -> Void)? = nil)
     {
-        Task
-        {
-            await MainActor.run
-            {
-                frontWindow?
-                    .dismissProgressHUD(
-                        animated: flag,
-                        completion: completion)
-            }
-        }
+        frontWindow?
+            .dismissProgressHUD(
+                animated: flag,
+                completion: completion)
     }
 }
 
