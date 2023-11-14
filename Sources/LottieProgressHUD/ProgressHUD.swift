@@ -51,6 +51,31 @@ open class ProgressHUD
     
     private static let singleton = ProgressHUD()
     
+    open class func show(
+        backgroundColor: UIColor? = ProgressHUD.backgroundColor,
+        effect: UIVisualEffect? = ProgressHUD.effect,
+        effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
+        effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
+        tapContentHandler: (() -> Void)? = ProgressHUD.tapContentHandler,
+        tapBackgroundHandler: (() -> Void)? = ProgressHUD.tapBackgroundHandler,
+        animated flag: Bool = true)
+    {
+        Task
+        {
+            await frontWindow?
+                .showProgressHUD(
+                    animation: ProgressHUD.defaultAnimation,
+                    backgroundColor: backgroundColor,
+                    effect: effect,
+                    effectCornerRadius: effectCornerRadius,
+                    effectSizeOffset: effectSizeOffset,
+                    tapContentHandler: tapContentHandler,
+                    tapBackgroundHandler: tapBackgroundHandler,
+                    animated: flag,
+                    completion: nil)
+        }
+    }
+    
     @MainActor
     open class func show(
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
@@ -59,31 +84,46 @@ open class ProgressHUD
         effectSizeOffset: UIOffset = ProgressHUD.effectSizeOffset,
         tapContentHandler: (() -> Void)? = ProgressHUD.tapContentHandler,
         tapBackgroundHandler: (() -> Void)? = ProgressHUD.tapBackgroundHandler,
-        animated flag: Bool = true,
-        completion: (@MainActor @Sendable (Bool) -> Void)? = nil)
+        animated flag: Bool = true) async -> Bool
     {
-        frontWindow?
-            .showProgressHUD(
-                animation: ProgressHUD.defaultAnimation,
-                backgroundColor: backgroundColor,
-                effect: effect,
-                effectCornerRadius: effectCornerRadius,
-                effectSizeOffset: effectSizeOffset,
-                tapContentHandler: tapContentHandler,
-                tapBackgroundHandler: tapBackgroundHandler,
-                animated: flag,
-                completion: completion)
+        return await withCheckedContinuation { continuation in
+            frontWindow?
+                .showProgressHUD(
+                    animation: ProgressHUD.defaultAnimation,
+                    backgroundColor: backgroundColor,
+                    effect: effect,
+                    effectCornerRadius: effectCornerRadius,
+                    effectSizeOffset: effectSizeOffset,
+                    tapContentHandler: tapContentHandler,
+                    tapBackgroundHandler: tapBackgroundHandler,
+                    animated: flag,
+                    completion: {
+                        continuation.resume(returning: $0) }) }
+    }
+    
+    open class func dismiss(
+        animated flag: Bool = true)
+    {
+        Task
+        {
+            await frontWindow?
+                .dismissProgressHUD(
+                    animated: flag,
+                    completion: nil)
+        }
     }
     
     @MainActor
     open class func dismiss(
         animated flag: Bool = true,
-        completion: (@MainActor @Sendable (Bool) -> Void)? = nil)
+        completion: (@MainActor @Sendable (Bool) -> Void)? = nil) async -> Bool
     {
-        frontWindow?
-            .dismissProgressHUD(
-                animated: flag,
-                completion: completion)
+        return await withCheckedContinuation { continuation in
+            frontWindow?
+                .dismissProgressHUD(
+                    animated: flag,
+                    completion: {
+                        continuation.resume(returning: $0) }) }
     }
 }
 
