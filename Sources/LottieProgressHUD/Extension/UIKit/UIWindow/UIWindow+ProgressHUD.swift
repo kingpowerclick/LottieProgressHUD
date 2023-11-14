@@ -21,7 +21,7 @@ extension UIWindow
         tapContentHandler: (() -> Void)? = ProgressHUD.tapContentHandler,
         tapBackgroundHandler: (() -> Void)? = ProgressHUD.tapBackgroundHandler,
         animated flag: Bool = true,
-        completion: ((Bool) -> Void)? = nil)
+        completion: (@MainActor @Sendable (Bool) -> Void)? = nil)
     {
         guard subviews.contains(where: { $0 is ProgressHUDViewType }) == false else
         {
@@ -64,7 +64,7 @@ extension UIWindow
     @MainActor
     public func dismissProgressHUD(
         animated flag: Bool = true,
-        completion: ((Bool) -> Void)? = nil)
+        completion: (@MainActor @Sendable (Bool) -> Void)? = nil)
     {
         guard let view = subviews.last(where: { $0 is (UIView & ProgressHUDViewType) }) else
         {

@@ -60,7 +60,7 @@ open class ProgressHUD
         tapContentHandler: (() -> Void)? = ProgressHUD.tapContentHandler,
         tapBackgroundHandler: (() -> Void)? = ProgressHUD.tapBackgroundHandler,
         animated flag: Bool = true,
-        completion: ((Bool) -> Void)? = nil)
+        completion: (@MainActor @Sendable (Bool) -> Void)? = nil)
     {
         frontWindow?
             .showProgressHUD(
@@ -78,7 +78,7 @@ open class ProgressHUD
     @MainActor
     open class func dismiss(
         animated flag: Bool = true,
-        completion: ((Bool) -> Void)? = nil)
+        completion: (@MainActor @Sendable (Bool) -> Void)? = nil)
     {
         frontWindow?
             .dismissProgressHUD(
