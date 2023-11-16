@@ -76,8 +76,8 @@ open class ProgressHUD
         }
     }
     
-    @MainActor
-    open class func show(
+    @discardableResult @MainActor
+    open class func showWithFinishedAnimation(
         backgroundColor: UIColor? = ProgressHUD.backgroundColor,
         effect: UIVisualEffect? = ProgressHUD.effect,
         effectCornerRadius: CGFloat = ProgressHUD.effectCornerRadius,
@@ -113,10 +113,10 @@ open class ProgressHUD
         }
     }
     
-    @MainActor
-    open class func dismiss(
-        animated flag: Bool = true,
-        completion: (@MainActor @Sendable (Bool) -> Void)? = nil) async -> Bool
+    
+    @discardableResult @MainActor
+    open class func dismissWithFinishedAnimation(
+        animated flag: Bool = true) async -> Bool
     {
         return await withCheckedContinuation { continuation in
             frontWindow?

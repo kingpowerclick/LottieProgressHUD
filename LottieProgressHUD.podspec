@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name          = "LottieProgressHUD"
-  s.version       = "3.0.2"
+  s.version       = "3.0.3"
   s.summary       = "ProgressHUD using Lottie from Airbnb"
   s.homepage      = "https://github.com/kingpowerclick/LottieProgressHUD"
   s.license       = { :type => "MIT", :file => "License.md" }
